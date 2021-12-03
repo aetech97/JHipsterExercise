@@ -9,6 +9,8 @@ import Router from 'vue-router';
 
 const Home = () => import('@/core/home/home.vue');
 const Paypal = () => import('@/core/paypal/paypal.vue');
+const LoginServlet = () => import('@/core/loginServlet/loginServlet.vue')
+const Adyen = () => import('@/core/adyen/adyen.vue')
 const Error = () => import('@/core/error/error.vue');
 import account from '@/router/account';
 import admin from '@/router/admin';
@@ -16,6 +18,7 @@ import entities from '@/router/entities';
 import pages from '@/router/pages';
 import cart from './cart';
 import list_produit from './list_produit';
+import contact from './contact';
 
 Vue.use(Router);
 
@@ -34,6 +37,17 @@ export default new Router({
       component: Paypal
     },
     {
+      path: '/adyen',
+      name: 'adyen',
+      component: Adyen
+    },
+    {
+      path: '/loginServlet',
+      name: 'loginServlet',
+      component: LoginServlet
+    },
+
+    {
       path: '/forbidden',
       name: 'Forbidden',
       component: Error,
@@ -49,6 +63,7 @@ export default new Router({
     ...admin,
     ...cart,
     ...list_produit,
+    ...contact,
     ...entities,
     ...pages
   ]
